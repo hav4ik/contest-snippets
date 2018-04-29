@@ -19,11 +19,11 @@ You can write your own snippets using `c` or `c++`, test them and convert them i
 1. Install [Google Test][gtest]
    If you are using ubuntu, the easiest way is:
 
-    $ sudo apt-get install libgtest-dev
-    $ cd /usr/src/gtest
-    $ sudo cmake CMakeList.txt
-    $ sudo make
-    $ sudo cp *.a /usr/local/lib
+       $ sudo apt-get install libgtest-dev
+       $ cd /usr/src/gtest
+       $ sudo cmake CMakeList.txt
+       $ sudo make
+       $ sudo cp *.a /usr/local/lib
 
    Or, you may follow instructions from official [repository][gtest] to build and install [Google Test][gtest].
 
