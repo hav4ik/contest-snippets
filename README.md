@@ -14,7 +14,21 @@ Additionally, you might want to install [vim-snippets][vimsnips] for other usefu
 
 ## Writing and testing your own snippets
 
+You can write your own snippets using `c` or `c++`, test them and convert them into [UltiSnips][ultisnips]-compatible snippets. To do that, you'll need to:
 
+1. Install [Google Test][gtest]
+   If you are using ubuntu, the easiest way is:
+
+    $ sudo apt-get install libgtest-dev
+    $ cd /usr/src/gtest
+    $ sudo cmake CMakeList.txt
+    $ sudo make
+    $ sudo cp *.a /usr/local/lib
+
+   Or, you may follow instructions from official [repository][gtest] to build and install [Google Test][gtest].
+
+2. Write your own snippets
+   A minimal snippet might look as follows:
 
 
 
@@ -23,3 +37,4 @@ Additionally, you might want to install [vim-snippets][vimsnips] for other usefu
 [vundle]: https://github.com/VundleVim/Vundle.vim
 [ultisnips]: https://github.com/SirVer/ultisnips
 [vimsnips]: https://github.com/honza/vim-snippets
+[gtest]: https://github.com/google/googletest
