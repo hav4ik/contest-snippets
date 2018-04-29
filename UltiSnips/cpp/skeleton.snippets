@@ -1,0 +1,61 @@
+snippet header "Common           - commonly used i/o, algorithms, datastructures, and quick defines"
+/// basic i/o includes
+#include <iostream>
+#include <sstream>
+#include <cstdio>
+#include <iomanip>
+#include <cstring>
+#include <cstdlib>
+#include <cmath>
+
+/// data structures and algorithms
+#include <vector>
+#include <stack>
+#include <queue>
+#include <deque>
+#include <algorithm>
+#include <set>
+#include <unordered_set>
+#include <map>
+#include <unordered_map>
+#include <bitset>
+
+/// i never use that in serious projects
+using namespace std;
+
+/// defines for retards
+#define forn(i, n) for (auto i = 0; i < (n); ++i)
+#define for1(i, n) for (auto i = 1; i <= (n); ++i)
+#define forab(i, a, b) for (auto i = (a); i <= (b); ++i);
+#define all(a) (a).begin(), (a).end();
+#define rall(a) (a).rbegin(), (a).rend();
+
+$0
+endsnippet
+
+
+snippet header "Geometry         - define basic geometry types"
+endsnippet
+
+
+snippet header "Float Ops        - define floating and double stuffs"
+endsnippet
+
+
+snippet body "CodeJam     - Google Code Jam body format"
+/// Define some global variables here
+$1
+
+void solve(int tcase)
+{
+	/// Write solution here
+	$0
+}
+
+int main()
+{
+	int testcases;
+	for1(t, testcases)
+		solve(t);
+}
+endsnippet

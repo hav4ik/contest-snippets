@@ -1,0 +1,10 @@
+snippet prefix "Prefix Function (STL)              STL version of prefix function"
+void prefix_function(${1:string&} s, ${2:vector<int>&} p) {
+    p.resize(s.length(), 0);
+    for (size_t i = 1; i < s.length(); ++i) {
+        size_t j = p[i - 1];
+        while (j > 0 && s[i] != s[j]) j = p[j - 1];
+        if (s[i] == s[j]) ++j; p[i] = j;
+    }
+}
+endsnippet
