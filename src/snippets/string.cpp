@@ -1,9 +1,5 @@
 #include "common.hpp"
-
-#include <string>
-#include <vector>
-using namespace std;
-
+#include <gtest/gtest.h>
 
 
 SNIPPET("prefix", "strings.snippets", "Prefix Function (STL)", "STL version of prefix function")

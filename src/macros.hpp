@@ -1,5 +1,4 @@
 #pragma once
-#include <gtest/gtest.h>
 
 // Macro tools
 #define MACRO_CAT_PRIMITIVE(A, B) A##B
