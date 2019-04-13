@@ -1,5 +1,5 @@
-snippet prefix "Prefix Function (STL)    STL version of prefix function"
-void prefix_function(TABSTOPWDEF(1,string&) s, TABSTOPWDEF(2,vector<int>&) p) {
+snippet prefix "Prefix Function (STL)STL version of prefix function"
+void prefix_function(${1:string&} s, ${2:vector<int>&} p) {
     p.resize(s.length(), 0);
     for (size_t i = 1; i < s.length(); ++i) {
         size_t j = p[i - 1];
@@ -8,8 +8,8 @@ void prefix_function(TABSTOPWDEF(1,string&) s, TABSTOPWDEF(2,vector<int>&) p) {
     }
 }
 endsnippet
-snippet zfunc "Z-function (STL)         Calculates Z-function in O(n)"
-void z_function(TABSTOPWDEF(1,string&) s, TABSTOPWDEF(2,vector<int>&) z) {
+snippet zfunc "Z-function (STL)    Calculates Z-function in O(n)"
+void z_function(${1:string&} s, ${2:vector<int>&} z) {
     int n = (int) s.length(); z.resize(n);
     for (int i=1, l=0, r=0; i<n; ++i) {
         if (i <= r) z[i] = min (r-i+1, z[i-l]);

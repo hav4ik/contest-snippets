@@ -3,7 +3,7 @@
 #include <gtest/gtest.h>
 
 
-MACROSNIPPET("head", "skeleton.snippets", "Common", "commonly used i/o, algorithms, datastructures, and quick defines")
+MACROSNIPPET("head", "skeleton.snippets", "Common", "commonly used #includes and convenient macros")
 /// basic i/o includes
 #include <iostream>
 #include <sstream>
@@ -52,8 +52,8 @@ TABSTOP(1)
 
 void solve(int tcase)
 {
-	/// Write solution here
-	TABSTOP(0)
+    /// Write solution here
+    TABSTOP(0)
 
     /// Write answer
     cout << "Case #" << tcase << ": " << endl;
@@ -61,10 +61,10 @@ void solve(int tcase)
 
 int main()
 {
-	int testcases;
-	cin >> testcases;
-	for1(t, testcases)
-		solve(t);
+    int testcases;
+    cin >> testcases;
+    for1(t, testcases)
+        solve(t);
     return 0;
 }
 ENDINLINESNIPPET
@@ -76,12 +76,12 @@ TABSTOP(1)
 
 int main()
 {
-	cin.tie(0);
-	ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    ios_base::sync_with_stdio(0);
 
-	/// Write your solution here
-	TABSTOP(0)
+    /// Write your solution here
+    TABSTOP(0)
 
-	return 0;
+    return 0;
 }
 ENDINLINESNIPPET

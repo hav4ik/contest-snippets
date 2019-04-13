@@ -1,30 +1,4 @@
-snippet head "Geometry 2D              Basic geometry operations and structs"
-/// Vector 2D and operations
-template<typename T> struct vec2 {
-    T x, y; vec2(T u, T v): x(u), y(v) {}
-    vec2<T>& operator= (const vec2<T>& a) { 
-        x=a.x; y=a.y; return *this; 
-    } 
-};
-template<typename T> bool operator== (const vec2<T>& a, const vec2<T>& b) { return b.x==a.x && b.y==a.y; }
-template<typename T> vec2<T> operator+ (const vec2<T>& a, const vec2<T>& b) { return vec2<T>(a.x+b.x,a.y+b.y); }
-template<typename T> vec2<T> operator- (const vec2<T>& a, const vec2<T>& b) { return vec2<T>(a.x-b.x,a.y-b.y); }
-template<typename T> vec2<T> operator* (const vec2<T>& a, T b) { return vec2<T>(a.x*b,a.y*b); }
-template<typename T> vec2<T> operator* (T a, const vec2<T>& b) { return vec2<T>(a*b.x,a*b.y); }
-template<typename T> vec2<T> operator/ (const vec2<T>& a, T b) { return vec2<T>(a.x/b,a.y/b); }
-template<typename T> inline T scalar(const vec2<T>& a, const vec2<T>& b) { return a.x*b.x+a.y*b.y; }
-template<typename T> inline T dot(const vec2<T>& a, const vec2<T>& b) { return a.x*b.y-a.y*b.x; }
-template<typename T> inline vec2<T> rot(const vec2<T>& v, double theta, const vec2<T>& anchor=vec2<T>(T(0), T(0))) { 
-    vec2<T> t = v - anchor; 
-    return vec2<T>(t.x*cos(theta)-t.y*sin(theta),t.x*sin(theta)+t.y*cos(theta)); 
-}
-typedef vec2<int> vec2i;
-typedef vec2<float> vec2f;
-typedef vec2<double> vec2d;
-
-$0
-endsnippet
-snippet head "Common                   commonly used i/o, algorithms, datastructures, and quick defines"
+snippet head "Common              commonly used #includes and convenient macros"
 /// basic i/o includes
 #include <iostream>
 #include <sstream>
@@ -64,14 +38,14 @@ typedef unsigned long long int ulli;
 
 $0
 endsnippet
-snippet body "CodeJam                  Google Code Jam style body"
+snippet body "CodeJam             Google Code Jam style body"
 /// Define some global variables here
 $1
 
 void solve(int tcase)
 {
-	/// Write solution here
-	$0
+    /// Write solution here
+    $0
 
     /// Write answer
     cout << "Case #" << tcase << ": " << endl;
@@ -79,25 +53,51 @@ void solve(int tcase)
 
 int main()
 {
-	int testcases;
-	cin >> testcases;
-	for1(t, testcases)
-		solve(t);
+    int testcases;
+    cin >> testcases;
+    for1(t, testcases)
+        solve(t);
     return 0;
 }
 endsnippet
-snippet body "Codeforces               Codeforces style body"
+snippet body "Codeforces          Codeforces style body"
 /// Define global variables here
 $1
 
 int main()
 {
-	cin.tie(0);
-	ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    ios_base::sync_with_stdio(0);
 
-	/// Write your solution here
-	$0
+    /// Write your solution here
+    $0
 
-	return 0;
+    return 0;
 }
+endsnippet
+snippet head "Geometry 2D         Basic geometry operations and structs"
+/// Vector 2D and operations
+template<typename T> struct vec2 {
+    T x, y; vec2(T u, T v): x(u), y(v) {}
+    vec2<T>& operator= (const vec2<T>& a) { 
+        x=a.x; y=a.y; return *this; 
+    } 
+};
+template<typename T> bool operator== (const vec2<T>& a, const vec2<T>& b) { return b.x==a.x && b.y==a.y; }
+template<typename T> vec2<T> operator+ (const vec2<T>& a, const vec2<T>& b) { return vec2<T>(a.x+b.x,a.y+b.y); }
+template<typename T> vec2<T> operator- (const vec2<T>& a, const vec2<T>& b) { return vec2<T>(a.x-b.x,a.y-b.y); }
+template<typename T> vec2<T> operator* (const vec2<T>& a, T b) { return vec2<T>(a.x*b,a.y*b); }
+template<typename T> vec2<T> operator* (T a, const vec2<T>& b) { return vec2<T>(a*b.x,a*b.y); }
+template<typename T> vec2<T> operator/ (const vec2<T>& a, T b) { return vec2<T>(a.x/b,a.y/b); }
+template<typename T> inline T scalar(const vec2<T>& a, const vec2<T>& b) { return a.x*b.x+a.y*b.y; }
+template<typename T> inline T dot(const vec2<T>& a, const vec2<T>& b) { return a.x*b.y-a.y*b.x; }
+template<typename T> inline vec2<T> rot(const vec2<T>& v, double theta, const vec2<T>& anchor=vec2<T>(T(0), T(0))) { 
+    vec2<T> t = v - anchor; 
+    return vec2<T>(t.x*cos(theta)-t.y*sin(theta),t.x*sin(theta)+t.y*cos(theta)); 
+}
+typedef vec2<int> vec2i;
+typedef vec2<float> vec2f;
+typedef vec2<double> vec2d;
+
+$0
 endsnippet

@@ -22,5 +22,5 @@
 
 // UltiSnips stuffs
 #define TABSTOPWDEF(N,DEFVAL) DEFVAL
-#define MIRROR(N,DEFVAL) DEFVAL
+#define MIRRORWDEF(N,DEFVAL) DEFVAL
 #define TABSTOP(N)

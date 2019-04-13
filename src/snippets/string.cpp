@@ -2,6 +2,7 @@
 #include <gtest/gtest.h>
 
 
+
 SNIPPET("prefix", "strings.snippets", "Prefix Function (STL)", "STL version of prefix function")
 void prefix_function(TABSTOPWDEF(1,string&) s, TABSTOPWDEF(2,vector<int>&) p) {
     p.resize(s.length(), 0);
