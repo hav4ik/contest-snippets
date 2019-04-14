@@ -57,10 +57,15 @@ ENDSNIPPET
 SNIPPET("trie", "strings.snippets", "Trie (prefix)", "Simple prefix tree")
 class Trie {
 public:
+  // TODO: set the [SIZE] of your alphabet (number of characters)
   static const int abc_size = TABSTOPWDEF(1,26);
+
   struct Node {
     int n[abc_size], p;
+
+    // TODO: set the [TYPE] of your alphabet (type of chars)
     TABSTOPWDEF(2,char) c;
+
     int wend;
     Node(MIRRORWDEF(2,char) i): p(-1), wend(0), c(i) {
       for (auto it = n; it != n + abc_size; ++it)
@@ -68,6 +73,7 @@ public:
     }
 
     int& operator [](MIRRORWDEF(2,char) i) {
+      // TODO: define how you will convert a char to its id (starting from 0)
       return n[TABSTOPWDEF(3,i - 'a')];
     }
   };
@@ -85,6 +91,7 @@ public:
     t.push_back(Node(0));  // (see https://stackoverflow.com/questions/18467624)
   }
 
+  // TODO: strings for the trie (hint: any STL iterable container)
   void add(TABSTOPWDEF(4,const string&) s) {
     int idx = 0, nxt;
     for (auto c = s.begin(); c != s.end(); ++c) {
@@ -136,6 +143,8 @@ public:
     return t[find(s)].wend;
   }
 };
+
+TABSTOP(5)
 TESTSNIPPET
 TEST(SimpleTrie, ComprehensiveTest) {
   Trie trie;          ASSERT_EQ(trie.t.size(), 1);
