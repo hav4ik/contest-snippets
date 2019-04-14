@@ -52,20 +52,23 @@ TABSTOP(1)
 
 void solve(int tcase)
 {
-    /// Write solution here
-    TABSTOP(0)
+  /// Write solution here
+  TABSTOP(0)
 
-    /// Write answer
-    cout << "Case #" << tcase << ": " << endl;
+  /// Write answer
+  cout << "Case #" << tcase << ": " << endl;
 }
 
 int main()
 {
-    int testcases;
-    cin >> testcases;
-    for1(t, testcases)
-        solve(t);
-    return 0;
+  cin.tie(0);
+  ios_base::sync_with_stdio(0);
+
+  int testcases;
+  cin >> testcases;
+  for1(t, testcases)
+      solve(t);
+  return 0;
 }
 ENDINLINESNIPPET
 
@@ -76,12 +79,12 @@ TABSTOP(1)
 
 int main()
 {
-    cin.tie(0);
-    ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  ios_base::sync_with_stdio(0);
 
-    /// Write your solution here
-    TABSTOP(0)
+  /// Write your solution here
+  TABSTOP(0)
 
-    return 0;
+  return 0;
 }
 ENDINLINESNIPPET
