@@ -1,20 +1,103 @@
 snippet prefix "Prefix Function (STL)STL version of prefix function"
 void prefix_function(${1:string&} s, ${2:vector<int>&} p) {
-    p.resize(s.length(), 0);
-    for (size_t i = 1; i < s.length(); ++i) {
-        size_t j = p[i - 1];
-        while (j > 0 && s[i] != s[j]) j = p[j - 1];
-        if (s[i] == s[j]) ++j; p[i] = j;
-    }
+  p.resize(s.length(), 0);
+  for (size_t i = 1; i < s.length(); ++i) {
+    size_t j = p[i - 1];
+    while (j > 0 && s[i] != s[j]) j = p[j - 1];
+    if (s[i] == s[j]) ++j; p[i] = j;
+  }
 }
 endsnippet
 snippet zfunc "Z-function (STL)    Calculates Z-function in O(n)"
 void z_function(${1:string&} s, ${2:vector<int>&} z) {
-    int n = (int) s.length(); z.resize(n);
-    for (int i=1, l=0, r=0; i<n; ++i) {
-        if (i <= r) z[i] = min (r-i+1, z[i-l]);
-        while (i+z[i] < n && s[z[i]] == s[i+z[i]]) ++z[i];
-        if (i+z[i]-1 > r) l = i,  r = i+z[i]-1;
-    }
+  int n = (int) s.length(); z.resize(n);
+  for (int i=1, l=0, r=0; i<n; ++i) {
+    if (i <= r) z[i] = min (r-i+1, z[i-l]);
+    while (i+z[i] < n && s[z[i]] == s[i+z[i]]) ++z[i];
+    if (i+z[i]-1 > r) l = i, r = i+z[i]-1;
+  }
 }
+endsnippet
+snippet trie "Trie (prefix)       Simple prefix tree"
+class Trie {
+public:
+  static const int abc_size = ${1:26};
+  struct Node {
+    int n[abc_size], p;
+    ${2:char} c;
+    int wend;
+    Node($2 i): p(-1), wend(0), c(i) {
+      for (auto it = n; it != n + abc_size; ++it)
+        *it = -1;
+    }
+
+    int& operator []($2 i) {
+      return n[${3:i - 'a'}];
+    }
+  };
+
+  vector<Node> t;
+  Node& operator [](int i) { return t[i]; }
+
+  Trie(int capacity=0) {
+    if (capacity > 0) t.reserve(capacity);
+    reset();
+  }
+
+  void reset() {
+    t.clear();             // cpp standard guarantees not to change the capacity.
+    t.push_back(Node(0));  // (see https://stackoverflow.com/questions/18467624)
+  }
+
+  void add(${4:const string&} s) {
+    int idx = 0, nxt;
+    for (auto c = s.begin(); c != s.end(); ++c) {
+      nxt = t[idx][*c];
+      if (nxt == -1) {
+        t.push_back(Node(*c));
+        t[idx][*c] = t.size() - 1;
+        t.back().p = idx;
+        idx = t.size() - 1;
+      }
+      else
+        idx = nxt;
+    }
+    t[idx].wend++;
+  }
+
+  int find($4 s) {
+    int idx = 0, nxt;
+    for (auto c = s.begin(); c != s.end(); ++c) {
+      nxt = t[idx][*c];
+      if (nxt == -1)
+        return -1;
+      else
+        idx = nxt;
+    }
+    return idx;
+  }
+
+  // WARNING: does not clean the memory!!! just removes the links!!!
+  void remove($4 s) {
+    int idx = find(s), prv;
+    if (idx != -1) {
+      if (t[idx].wend <= 0) return;
+      t[idx].wend--;
+      if (t[idx].wend == 0) {
+        for (auto it = t[idx].n; it != t[idx].n + abc_size; ++it)
+          if (*it != -1) return;
+        while (t[idx].wend == 0) {
+          prv = t[idx].p;
+          if (prv == -1) return;
+          t[prv][t[idx].c] = -1;
+          idx = prv;
+        }
+      }
+    }
+  }
+
+  inline int count($4 s) {
+    return t[find(s)].wend;
+  }
+};
 endsnippet
