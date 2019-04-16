@@ -129,21 +129,6 @@ ENDSNIPPET
 
 
 SNIPPET("chinese", "numbers.snippets", "Chinese Theorem", "Given {a_i = a % p_i}_1^k, restores a")
-// Ring multiplication inverse
-MIRRORWDEF(1,int) mul_inv(MIRRORWDEF(1,int) a, MIRRORWDEF(1,int) b) {
-  MIRRORWDEF(1,int) b0(b), x0(0), x1(1);
-  if (b == 1) return 1;
-  while (a > 1) {
-    MIRRORWDEF(1,int) q = a / b;
-    MIRRORWDEF(1,int) amb = a % b;
-    a = b, b = amb;
-    MIRRORWDEF(1,int) xqx = x1 - q * x0;
-    x1 = x0, x0 = xqx;
-  }
-  if (x1 < 0) x1 += b0;
-  return x1;
-}
-
 // Given a system of remainder equations:
 //   a mod p0 = r0
 //   ...
@@ -154,6 +139,19 @@ TABSTOPWDEF(2,int) chinese_solver(
     const vector<TABSTOPWDEF(1,int)>& ps,
     const vector<MIRRORWDEF(1,int)>& as,
     vector<MIRRORWDEF(1,int)>& xs) {
+  auto mul_inv = [](MIRRORWDEF(1,int) a, MIRRORWDEF(1,int) b) {
+    MIRRORWDEF(1,int) b0(b), x0(0), x1(1);
+    if (b == 1) return 1;
+    while (a > 1) {
+      MIRRORWDEF(1,int) q = a / b;
+      MIRRORWDEF(1,int) amb = a % b;
+      a = b, b = amb;
+      MIRRORWDEF(1,int) xqx = x1 - q * x0;
+      x1 = x0, x0 = xqx;
+    }
+    if (x1 < 0) x1 += b0;
+    return x1;
+  };
   int x, y; xs.resize(as.size());
   for (int i=0; i<as.size(); ++i) {
     xs[i] = as[i];
