@@ -171,6 +171,7 @@ TABSTOPWDEF(2,int) chinese_solver(
   }
   return a;
 }
+TABSTOP(0)
 TESTSNIPPET
 TEST(ChineseTheoremSolver, SimpleTest) {
   vector<int> ps = {2, 3, 5, 7, 11}, as = {0, 1, 1, 1, 5}, xs;
