@@ -1,5 +1,5 @@
-# contest-snippets
-Vim snippets for competitive programming.
+# Vim Snippets for Competitive Programming
+Write your snippets for competitive programming (CodeJam, Codeforces, HackerCup, TopCoder, etc.) with all the flexibility of `UltiSnips`. Ensure they works correctly by writing your own unit tests using `gtest`.
 
 
 ## Installation
