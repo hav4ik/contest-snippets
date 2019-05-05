@@ -19,10 +19,13 @@ using namespace std;
 #define forr(i, n) for (auto i = (n); i-- > 0; )
 #define for1(i, n) for (auto i = 1; i <= (n); ++i)
 #define forab(i, a, b) for (auto i = (a); i <= (b); ++i)
-#define all(a) (a).begin(), (a).end();
-#define rall(a) (a).rbegin(), (a).rend();
+#define forit(it, a) for (auto it = (a); it != (a).end(); ++it)
+#define all(a) (a).begin(), (a).end()
+#define rall(a) (a).rbegin(), (a).rend()
 #define pb(a) push_back(a)
 #define ppb(a) pop_back(a)
+#define fi first
+#define se second
 
 TABSTOP(0)
 ENDMACROSNIPPET
@@ -49,8 +52,9 @@ int main()
 
   int testcases;
   cin >> testcases;
-  for1(t, testcases)
+  for1(t, testcases) {
       solve(t);
+  }
   return 0;
 }
 ENDINLINESNIPPET
