@@ -12,6 +12,19 @@ It is recommended to use [Vundle][vundle] to install this plugin (it's cleaner t
 Additionally, you might want to install [vim-snippets][vimsnips] for other useful snippets. I personally don't use it.
 
 
+## Implemented algorithms
+
+* **Number Theory**
+  - GCD
+  - GCD extended
+  - Prive Sieve in 4 variations:
+    - Returns a bool vector
+    - Returns a factorization vector
+    - Returns a vector of primes
+    - Memory-optimized for large upper bound
+  - Chinese theorem solver
+
+
 ## Writing and testing your own snippets
 
 You can write your own snippets using `c` or `c++`, test them and convert them into [UltiSnips][ultisnips]-compatible snippets. To do that, you'll need to:
