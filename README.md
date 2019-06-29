@@ -29,7 +29,7 @@ Additionally, you might want to install [vim-snippets][vimsnips] for other usefu
 
 You can write your own snippets using `c` or `c++`, test them and convert them into [UltiSnips][ultisnips]-compatible snippets. To do that, you'll need to:
 
-1.  Install [Google Test][gtest]:
+1.  Install [Google Test][gtest] and [Google Mock][gmock]:
     If you are using ubuntu, the easiest way is:
 
         $ sudo apt-get install libgtest-dev
@@ -37,6 +37,7 @@ You can write your own snippets using `c` or `c++`, test them and convert them i
         $ sudo cmake CMakeList.txt
         $ sudo make
         $ sudo cp *.a /usr/local/lib
+        # sudo apt install google-mock
 
     Or, you may follow instructions from official [repository][gtest] to build and install [Google Test][gtest].
 
@@ -44,7 +45,7 @@ You can write your own snippets using `c` or `c++`, test them and convert them i
 
     Create your code file `src/snippets/my.cpp`. A minimal snippet might look as follows:
 
-        ```c++
+    
         // this header contains neccessary macros
         #include "common.hpp"
 
@@ -73,7 +74,7 @@ You can write your own snippets using `c` or `c++`, test them and convert them i
             ASSERT_EQ(fastpow(0, 0), 1);
         }
         ENDSNIPPET
-        ```
+
 
     Compile, test and generate an [UltiSnips][ultisnips]-like snippet as follows:
 
@@ -82,7 +83,6 @@ You can write your own snippets using `c` or `c++`, test them and convert them i
 
     Now, there should be a file `my.snippets` in the folder `UltiSnips/cpp/`, which will look as follows:
 
-        ```
         snippet pow "fast power calculation             - calculates power in O(log n)"
         ${1,int} fastpow($1 a, $1 n) {
             $1 res = 1;
@@ -92,7 +92,6 @@ You can write your own snippets using `c` or `c++`, test them and convert them i
             return res;
         }
         $0
-        ```
 
     It is very convenient to place a `$0` tabstop at the end of the method. For more about tabstops and mirros, please check the [UltiSnip's documentation][ultisnips-doc].
 
@@ -101,4 +100,5 @@ You can write your own snippets using `c` or `c++`, test them and convert them i
 [ultisnips]: https://github.com/SirVer/ultisnips
 [vimsnips]: https://github.com/honza/vim-snippets
 [gtest]: https://github.com/google/googletest
+[gmock]: https://github.com/google/googletest/tree/master/googlemock
 [ultisnips-doc]: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
